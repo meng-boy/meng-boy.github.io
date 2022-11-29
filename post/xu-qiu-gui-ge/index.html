@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>需求规格 | Involution</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://meng-boy.github.io/favicon.ico?v=1669736484775">
+<link rel="stylesheet" href="https://meng-boy.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="开卷吧！同学
+该项目以微信小程序形式展现。（）内的内容为后续开发内容，开发初期可暂时不管
+本软件针对一到三年级学生用户群体设计，包括数学，英语以及语文三个学科，具体功能板块如下：
+系统用例：
+
+
+注册模块：
+应用会根据微信绑定，同时注册需要..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://meng-boy.github.io">
+        <img src="https://meng-boy.github.io/images/avatar.png?v=1669736484775" class="site-logo">
+        <h1 class="site-title">Involution</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/meng-boy" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      卷！都可以卷！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://meng-boy.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">需求规格</h2>
+            <div class="post-date">2022-09-24</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="开卷吧同学">开卷吧！同学</h1>
+<p>该项目以微信小程序形式展现。（）内的内容为后续开发内容，开发初期可暂时不管</p>
+<p>本软件针对一到三年级学生用户群体设计，包括数学，英语以及语文三个学科，具体功能板块如下：</p>
+<h2 id="系统用例">系统用例：</h2>
+<img src="http://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/AP%246(5V7OK%7E3VAAK%7EI%7B5%25AY.png"/>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/5S0R%5D%7DKONVV_%7ED%24WV2T%24W9I.png"/>
+<h2 id="注册模块">注册模块：</h2>
+<p>应用会根据微信绑定，同时注册需要填写用户昵称和选择年级，平台会根据所选年级自动生成与之匹配的题库和智能推荐系统</p>
+<h2 id="主页模块">主页模块：</h2>
+<p>主页以竖直方向分为三个板块：</p>
+<h3 id="1滑动推荐">1.滑动推荐</h3>
+<p>根据所设置板块进行内容推荐，无触碰时会自动滑动，用户触碰时即可根据用户手势进行滚动，（点击即可进入相关内容）</p>
+<h3 id="2学习功能模块">2.学习功能模块</h3>
+<p>分为4个模块，即每日一练，快口算，背单词以及古诗词</p>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/image-20220924214817250.png"/>
+<p><strong>每日一练</strong>：进入选择要进行挑战的科目，即数学、英语、语文。暂时设计为闯关模式，即根据对应的科目设置几道关卡（以选择题，计算题，填空题，连线配对题等为主要形式）</p>
+<p><font color=red>奖惩</font>:全对通关会奖励相应的积分，积分根据正确率来进行奖励，如果正确率低于60%即不进行奖励，并且进行对应的提醒。</p>
+<p>设置闯关限制：即失败三次会自动结束闯关，每天有三次机会。</p>
+<p><strong>快口算</strong>：应用会根据不同的年级进行相应的出题，暂定为每次30到口算题，（题数可以在设置里面更改），题型暂定，出题方式可以选择题库，也可以设置随机出题。</p>
+<p><font color=red>奖惩</font>:当全部答对时也会有对应的积分奖励以及提示</p>
+<p><strong>背单词</strong>：根据系统的单词库，用户可以设置每日要背的单词量，每个单词会给出对应的英文和中文（发音，例句或者图片），界面可以设置三个按键，即加入  生词本，会啦，下一个，下一个会默认该单词没记住，系统会在后面再展示该单词。</p>
+<p><font color=red>单词设置</font>:单词系统库分为未完成和已完成，（后续可以尝试加复习模式）</p>
+<p><strong>古诗词</strong>：每日推荐一首对应年级的古诗词，诗词和其释义</p>
+<h3 id="3智能推荐模块">3.智能推荐模块</h3>
+<p>暂定模块有：每日读物，英语动画短片，古诗词短片，数学小故事</p>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/image-20220924221007377.png"/>
+<h2 id="个人界面">个人界面</h2>
+<p>个人界面在下标设置为我</p>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/image-20220924221147067.png"/>
+<p>其中有</p>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/image-20220924221417863.png" style="zoom:67%;" />
+<h4 id="个人信息可以设置为图片最上方">个人信息（可以设置为图片最上方）</h4>
+<h4 id="积分">积分</h4>
+<p>积分功能暂定，可以用于提升等级或者解锁或者兑换</p>
+<h4 id="错题本数学">错题本（数学）</h4>
+<h4 id="生词本英语">生词本（英语）</h4>
+<h4 id="古诗词收藏语文">古诗词收藏（语文）</h4>
+<h4 id="设置">设置</h4>
+<p>年级，昵称等</p>
+<h2 id="搜索页面">搜索页面</h2>
+<p>目前暂定，搜索功能可能较为复杂，可以尝试寻找模板，搜索功能内容限于应用平台内部</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://meng-boy.github.io/post/nabcd-mo-xing/">
+                  <h3 class="post-title">
+                    NABCD模型
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

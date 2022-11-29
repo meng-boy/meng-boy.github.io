@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>立项会议 | Involution</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://meng-boy.github.io/favicon.ico?v=1669736484775">
+<link rel="stylesheet" href="https://meng-boy.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="软件工程定项第一次会议记录
+
+
+参会者：曾成龙，陈端哲，孟凡智，魏子腾
+
+
+时间：2022年9月30号周五
+
+
+地点：沁苑东十一舍
+
+
+项目选择
+基于微信开发者工具的语数英儿童学习小程序
+1.主要技术栈
+前端：html（用于搭建页面框架）、..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://meng-boy.github.io">
+        <img src="https://meng-boy.github.io/images/avatar.png?v=1669736484775" class="site-logo">
+        <h1 class="site-title">Involution</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/meng-boy" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      卷！都可以卷！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://meng-boy.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">立项会议</h2>
+            <div class="post-date">2022-10-04</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="软件工程定项第一次会议记录">软件工程定项第一次会议记录</h1>
+<ul>
+<li>
+<p><strong>参会者</strong>：曾成龙，陈端哲，孟凡智，魏子腾</p>
+</li>
+<li>
+<p><strong>时间</strong>：2022年9月30号周五</p>
+</li>
+<li>
+<p><strong>地点</strong>：沁苑东十一舍</p>
+</li>
+</ul>
+<h2 id="项目选择">项目选择</h2>
+<p>基于微信开发者工具的语数英儿童学习小程序</p>
+<h3 id="1主要技术栈">1.主要技术栈</h3>
+<p><strong>前端</strong>：html（用于搭建页面框架）、css（渲染页面）</p>
+<p><strong>后端</strong>：javascript（利用前端语言实现后端逻辑）</p>
+<h3 id="2团队分工">2.团队分工</h3>
+<p>因为微信开发者工具是基于前端语言的小程序开发，涉及后端的并不多，所以我们选择按模块分工。</p>
+<p><strong>主页设计与接口对接</strong>：曾成龙</p>
+<p><strong>口算练习与文章推荐</strong>：魏子腾</p>
+<p><strong>诗词背诵与闯关</strong>：孟凡智</p>
+<p><strong>单词背诵与闯关</strong>：陈端哲</p>
+<h2 id="项目分析头脑风暴">项目分析（头脑风暴）</h2>
+<h3 id="1-现有儿童教育平台的缺陷">1. 现有儿童教育平台的缺陷</h3>
+<blockquote>
+<ul>
+<li>界面不够简约，难以支持儿童独立使用</li>
+<li>广告、付费课程较多，影响使用</li>
+<li>学习资源未按照年级划分，未与课本对应</li>
+<li>趣味性较差</li>
+</ul>
+</blockquote>
+<h3 id="2-改进方式">2. 改进方式</h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7415066"><label class="task-list-item-label" for="task-item-7415066"> 界面简约化，支持儿童独立使用</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1228106"><label class="task-list-item-label" for="task-item-1228106"> 随时可以开始练习并进行批改</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-551254"><label class="task-list-item-label" for="task-item-551254"> 学习资源按照语数英与年级进行细致划分并于课内知识对应</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-7603224"><label class="task-list-item-label" for="task-item-7603224"> 增加答题闯关功能，提高趣味性</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6781942"><label class="task-list-item-label" for="task-item-6781942"> 利用云数据库进行资源与错题的管理</label></li>
+</ul>
+<h3 id="3-学习资源来源">3. 学习资源来源</h3>
+<blockquote>
+<ul>
+<li>口算练习：利用相关算法进行随机生成</li>
+<li>诗词背诵：小学课本必备古诗词</li>
+<li>单词背诵：小学课本重点单词</li>
+<li>推荐文章：各大资源共享平台</li>
+</ul>
+</blockquote>
+<h3 id="4-初步需求">4. 初步需求</h3>
+<blockquote>
+<ul>
+<li>首页、个人信息等界面设计</li>
+<li>每日30道口算练习</li>
+<li>古诗词背诵与答题</li>
+<li>单词背诵与答题</li>
+<li>推荐文章收集</li>
+</ul>
+</blockquote>
+<h2 id="思维导图">思维导图</h2>
+<img src="https://raw.githubusercontent.com/2006wzt/PicGo_images/master/images/20221004150047.png" style="zoom:60%;" />
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://meng-boy.github.io/post/xu-qiu-gui-ge/">
+                  <h3 class="post-title">
+                    需求规格
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

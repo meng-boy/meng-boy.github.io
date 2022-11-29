@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>NABCD模型 | Involution</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://meng-boy.github.io/favicon.ico?v=1669736484775">
+<link rel="stylesheet" href="https://meng-boy.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="NABCD模型分析
+N(Need)
+实现一个自动生成题目的儿童学习系统用以满足学生对每日练习的需求。
+
+A(Approach)
+
+
+精简操作界面，使其更易使用和推广。
+
+
+使用随机生成，避免题目重复度高。
+
+
+加入账号管理用以便捷操作。
+
+..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://meng-boy.github.io">
+        <img src="https://meng-boy.github.io/images/avatar.png?v=1669736484775" class="site-logo">
+        <h1 class="site-title">Involution</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/meng-boy" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      卷！都可以卷！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://meng-boy.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">NABCD模型</h2>
+            <div class="post-date">2022-09-24</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="nabcd模型分析"><strong>NABCD模型分析</strong></h1>
+<h2 id="nneed">N(Need)</h2>
+<pre><code>实现一个自动生成题目的儿童学习系统用以满足学生对每日练习的需求。
+</code></pre>
+<h2 id="aapproach">A(Approach)</h2>
+<ul>
+<li>
+<p>精简操作界面，使其更易使用和推广。</p>
+</li>
+<li>
+<p>使用随机生成，避免题目重复度高。</p>
+</li>
+<li>
+<p>加入账号管理用以便捷操作。</p>
+</li>
+<li>
+<p>使用数据库 ，辅助不同模块实现</p>
+<pre><code>1.加入诗词库和英文单词库，用以实现诗词和单词背诵。
+
+2.实现错题集，用以提高学习效率
+</code></pre>
+</li>
+</ul>
+<h2 id="bbenefit">B(Benefit)</h2>
+<ul>
+<li>能够满足学生家长对日常出题需求，大大提高工作效率。</li>
+<li>实现不同学科分模块提供相应协助。</li>
+<li>操作简化更加人性化，加入闯关等趣味性模块。</li>
+<li>更加个性化，根据学生本身情况提供相应服务。</li>
+<li>增加优秀文章（语文，英语）推荐，注重素质培养</li>
+</ul>
+<h2 id="ccompetitors">C（Competitors）</h2>
+<ul>
+<li>简化了操作需求，面向低年级学生。</li>
+<li>注重家长的诉求，针对性更强</li>
+<li>更加稳定。</li>
+</ul>
+<h2 id="ddelivery">D（Delivery）</h2>
+<ul>
+<li>尝试与校方合作进行宣传供大家使用。</li>
+<li>通过家长在一定范围内使用，进而推广。</li>
+<li>借助微信平台进行推广。</li>
+</ul>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>微信开发者工具使用指南 | Involution</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://meng-boy.github.io/favicon.ico?v=1669736484775">
+<link rel="stylesheet" href="https://meng-boy.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="微信开发者工具
+一、初步认识开发工具
+.wxml：类似于html语言，是小程序一个页面的框架，进行组件的布局
+.wxss：用于对小程序的组件进行渲染，如设置颜色、位置等等
+.js：是小程序组件功能实现的依托，用于定于函数并进行调用
+接下来，..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://meng-boy.github.io">
+        <img src="https://meng-boy.github.io/images/avatar.png?v=1669736484775" class="site-logo">
+        <h1 class="site-title">Involution</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/meng-boy" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      卷！都可以卷！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://meng-boy.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">微信开发者工具使用指南</h2>
+            <div class="post-date">2022-11-29</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="微信开发者工具">微信开发者工具</h1>
+<h2 id="一-初步认识开发工具">一、初步认识开发工具</h2>
+<p>.wxml：类似于html语言，是小程序一个页面的框架，进行组件的布局<br>
+.wxss：用于对小程序的组件进行渲染，如设置颜色、位置等等<br>
+.js：是小程序组件功能实现的依托，用于定于函数并进行调用</p>
+<p>接下来，我们以一个名片小程序的开发过程为例，对微信开发者工具进行初步认识。</p>
+<h3 id="11-插入图片">1.1 插入图片</h3>
+<p>我们首先设计一张名片：</p>
+<img src="images/image-20220925154637269.png" alt="image-20220925154637269" style="zoom:50%;" />
+<p>在.wxml文件中插入图片：</p>
+<pre><code class="language-html">&lt;!--index.wxml--&gt;
+&lt;image mode=&quot;widthFix&quot; src=&quot;../../img/Card.png&quot;&gt;&lt;/image&gt; &lt;!--图片组件--&gt;
+</code></pre>
+<p>在.wxss中进行调整：</p>
+<pre><code class="language-css">/**index.wxss**/
+image{
+  width:100%;/**使得图片宽度占到页面的100%**/
+}
+</code></pre>
+<h3 id="12-插入文字">1.2 插入文字</h3>
+<p>在.wxml文件中插入文字：</p>
+<pre><code class="language-html">&lt;!--index.wxml--&gt;
+&lt;image mode=&quot;widthFix&quot; src=&quot;../../img/Card.png&quot;&gt;&lt;/image&gt; &lt;!--图片组件--&gt;
+&lt;view class=&quot;comment&quot;&gt;张三金牌销售&lt;/view&gt; &lt;!--给文字一个类comment--&gt;
+&lt;view class=&quot;body&quot;&gt;
+  &lt;view class=&quot;title&quot;&gt;什么是Next Studios？&lt;/view&gt;
+  &lt;view&gt; NEXT Studios，腾讯游戏旗下最年轻的工作室，由想给玩家带来新体验的创作者和热爱新技术的开发者组建。名字的来源是「New Experience and Technology」，也意味着团队旨在鼓励创意研发，关注前沿技术应用，最终制作差异化、高品质、有口碑的内容体验。&lt;/view&gt;&lt;!--嵌套view实现换行--&gt;
+  &lt;view&gt;NExT出品的游戏覆盖PC、主机、移动等全平台，包括暗黑手绘的《彩虹坠入》、听声辨案的《疑案追声》、双人合作的《只只大冒险》、同步回合的《不思议的皇冠》等，曾先后荣获多个国际奖项或提名——Webby Awards最佳解谜游戏奖、IGF最佳设计奖的荣誉提名、SXSW（西南偏南）年度独立游戏奖和玩家之声奖提名等。目前还在研一款轻科幻题材PvPvE战术射击网游《重生边缘》，未来计划在各游戏平台发布系列作品。&lt;/view&gt;
+  &lt;view&gt;技术方面，NExT持续钻研高保真数字人、AI等前沿科技，已拥有照相建模、动作捕捉两大实验室，构建了业界高端水平的数字人生产管线xFaceBuilder®和基于光学动捕的动画生产管线xMoCap®，深入探索全场景的技术应用。&lt;/view&gt;
+  &lt;view&gt;尝试新玩法、创造新体验、研究新技术，探索游戏作为独特媒介的更多边界与可能性——NExT，做纯粹的好游戏！&lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<p>但是这样的显示效果远不是我们想要的：</p>
+<img src="images/image-20220925160816097.png" alt="image-20220925160816097" style="zoom:50%;" />
+<p>我们需要在.wxss文件中对文字显示进行控制，因为我们对文字定义了类，所以在.wxss文件中对这个类进行操作即可：</p>
+<pre><code class="language-css">/**index.wxss**/
+image{
+  width:100%;/*使得图片宽度占到页面的100%*/
+}
+.comment{/*名片图片注解类*/
+  text-align: center;/*文字居中*/
+  font-size: 14px;/*字体大小*/
+  color: #999;/*文字颜色*/
+}
+.body{/*文字介绍类*/
+  padding: 30px;/*盒模型填充宽度*/
+  line-height: 2;/*行间距*/
+}
+.title{
+  font-size: 24px;
+  font-weight: bold;/*文字加粗*/
+  padding-top: 10px;
+  padding-bottom: 10px;/*上下方进行填充*/
+}
+</code></pre>
+<p>于是我们得到了如下的效果：</p>
+<img src="images/image-20220925163404194.png" alt="image-20220925163404194" style="zoom:50%;" />
+<h3 id="13-效果预览">1.3 效果预览</h3>
+<p>点击预览，如果选择自动预览，则会在绑定的微信上显示当前的小程序效果，也可以通过扫描二维码的方式查看。</p>
+<img src="images/image-20220925163605988.png" alt="image-20220925163605988" style="zoom: 30%;" />
+<h3 id="14-项目上传">1.4 项目上传</h3>
+<p>设计好小程序之后，点击上传按钮可以实现小程序的发布，设置版本号与备注之后即可在管理后台进行设置。</p>
+<img src="images/image-20220925164311969.png" alt="image-20220925164311969" style="zoom:30%;" />
+<p>注意管理员需要将版本设置为体验版本，设置好传输的路径即可发布体验版本：</p>
+<img src="images/image-20220925164449196.png" alt="image-20220925164449196" style="zoom:40%;" />
+<p>而正式发布时需要点击提交审核，需要提前设置好小程序的相关信息。</p>
+<h3 id="15-名片设计">1.5 名片设计</h3>
+<p>有了上述的基本知识，我们可以自行设计一个名片，不妨重新创建一个page页面来设计名片。<br>
+值得注意的是，在app.json文件中，pages中的第一个路径是什么，模拟器就显示什么页面，我们可以将我们新建的页面路径设置为第一个，然后模拟器就会显示该页面。</p>
+<img src="images/image-20220925174255810.png" alt="image-20220925174255810" style="zoom:67%;" />
+<p>我们所要设计的名片的期望效果如下：</p>
+<img src="images/image-20220925181541770.png" alt="image-20220925181541770" style="zoom:60%;" />
+<h4 id="151-后代选择器">1.5.1 后代选择器</h4>
+<p>相当于类中的成员，比如我们在.wxml文件中定义了如下的card类，且类中有一个组件image</p>
+<pre><code class="language-html">&lt;!--pages/card/card.wxml--&gt;
+&lt;view class=&quot;card&quot;&gt;
+  &lt;image src=&quot;../../img/bg.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+&lt;/view&gt;
+</code></pre>
+<p>那么我们可以在.wxss中定义.card image对card类中的组件image进行属性设置，而不会对card外的image起作用：</p>
+<pre><code class="language-css">/* pages/card/card.wxss */
+.card{/*card类*/
+
+}
+/*后代选择器*/
+.card image{/*card类中的image组件*/
+
+}
+</code></pre>
+<h4 id="152-绝对定位">1.5.2 绝对定位</h4>
+<p>为了调整logo的位置，我们可以进行绝对定位，在.wxss文件中将logo图片设置为绝对定位，但是还需要将其父元素card设置为相对定位</p>
+<pre><code class="language-html">&lt;!--pages/card/card.wxml--&gt;
+&lt;view class=&quot;card&quot;&gt;
+  &lt;image class=&quot;bg&quot; src=&quot;../../img/bg.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;image class=&quot;logo&quot; src=&quot;../../img/logo.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;view class=&quot;info&quot;&gt;
+    &lt;view class=&quot;name&quot;&gt;NExT学院&lt;/view&gt;
+    &lt;view class=&quot;desc&quot;&gt;专注高质量IT课程&lt;/view&gt;
+    &lt;view&gt;1335287851@qq.com&lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">/* pages/card/card.wxss */
+.card{/*card类*/
+  margin: 10px;/*外边距*/
+  position: relative;/*相对定位*/
+}
+/*后代选择器*/
+.bg{/*card类中的image组件*/
+  width: 100%;
+  border-radius: 5px;/*边框圆角设置*/
+  box-shadow: 0 0 5px #5F687E;/*阴影效果*/
+  /*x轴偏移量,y轴偏移量,阴影宽度,阴影颜色*/
+}
+.logo{/*logo类*/
+  width: 60px;
+  position: absolute;/*绝对定位*/
+  top: 10px;/*绝对位置*/
+  right: 20px;
+}
+.info{/*名片信息类*/
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 14px;
+  color: #5F687E;
+  font-family: &quot;微软雅黑&quot;;/*字体*/
+}
+.name{
+  font-weight: bold;
+}
+.desc{
+  margin-bottom: 10px;
+}
+</code></pre>
+<p>最终得到的名片如下：</p>
+<img src="images/image-20220925225652965.png" alt="image-20220925225652965" style="zoom:50%;" />
+<h3 id="16-wxss-入门">1.6 WXSS 入门</h3>
+<p>**（1）类选择器 class：**类名可以用空格隔开，并且在wxss中后定义的选择器会覆盖掉定义在前面的类选择器的效果，比如我们在名片信息info类中再添加一个类名“red”，并且在wxss中将red类的颜色改为红色，那么此时名片效果就会变为：</p>
+<pre><code class="language-html">&lt;view class=&quot;card&quot;&gt;
+  &lt;image class=&quot;bg&quot; src=&quot;../../img/bg.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;image class=&quot;logo&quot; src=&quot;../../img/logo.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;view class=&quot;info red&quot;&gt;&lt;!--此处定义了两个类--&gt;
+    &lt;view class=&quot;name&quot;&gt;NExT学院&lt;/view&gt;
+    &lt;view class=&quot;desc&quot;&gt;专注高质量IT课程&lt;/view&gt;
+    &lt;view&gt;1335287851@qq.com&lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">.red{/*一定要带&quot;.&quot;*/
+  color:red;
+}
+</code></pre>
+<img src="images/image-20220927144456743.png" alt="image-20220927144456743" style="zoom: 67%;" />
+<p>**（2）组件选择器：**用在wxml中的组件也可以用定义成选择器，比如我们可以将view定义成选择器，设置边框则得到的效果如下：</p>
+<pre><code class="language-css">view{/*此处不需要&quot;.&quot;*/
+  border: 1px solid #000000;
+}
+</code></pre>
+<img src="images/image-20220927144952019.png" alt="image-20220927144952019" style="zoom:67%;" />
+<p>该组件并不常用，因为命中的对象过多。<br>
+通式选择器可以进行组合定义，比如我们定义：</p>
+<pre><code class="language-css">image,view{/*此处不需要&quot;.&quot;*/
+  border: 1px solid #000000;
+}
+</code></pre>
+<p>则得到的效果如下：</p>
+<img src="images/image-20220927145220269.png" alt="image-20220927145220269" style="zoom:67%;" />
+<h3 id="17-首页开发">1.7 首页开发</h3>
+<p>期望开发出的首页效果为：</p>
+<img src="images/image-20220927150658422.png" alt="image-20220927150658422" style="zoom:25%;" />
+<h4 id="171-盒模型">1.7.1 盒模型</h4>
+<p>我们首先构造首页示例中的最小的课程页面：</p>
+<pre><code class="language-html">&lt;view class=&quot;course-card&quot;&gt;
+  &lt;view&gt;
+    &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;/view&gt;&lt;!--图片--&gt;
+  &lt;view&gt;机器学习实战（一）：机器学习导论&lt;/view&gt;&lt;!--名称--&gt;
+  &lt;view&gt;免费&lt;/view&gt;&lt;!--免费--&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">.course-card{
+  width: 50%;/*父元素为整个page，占整个page的50%*，尽量用百分比/
+  margin: 10px;/*外边距*/
+  padding: 10px;/*内边距*/
+}
+.course-card image{
+  width: 100%;/*父元素为course-card，占course-card的100%*/
+}
+</code></pre>
+<img src="images/image-20220927154529834.png" alt="image-20220927154529834" style="zoom: 67%;" />
+<p>box-sizing：border-box（width代表整个盒子的宽度，包括内边距）；content-box（width代表盒子内部内容的宽度，不包括内边距）</p>
+<img src="images/image-20220927155455801.png" alt="image-20220927155455801" style="zoom:67%;" />
+<p>利用position对课程页面进行定位：<br>
+① relative：相对自己的位置偏移</p>
+<img src="images/image-20220927155723728.png" alt="image-20220927155723728" style="zoom: 67%;" />
+<p>② absolute：相对于非static最近的父级元素的位置偏移</p>
+<img src="images/image-20220927155834589.png" alt="image-20220927155834589" style="zoom:67%;" />
+<p>③ fixed：相对于视窗的位置偏移，可以固定在屏幕上</p>
+<img src="images/image-20220927155955498.png" alt="image-20220927155955498" style="zoom:67%;" />
+<h4 id="172-flexbox">1.7.2 FlexBox</h4>
+<p>当我们设计好两个课程模块时，它们并不是并排显示的，我们希望实现课程的并排显示：</p>
+<pre><code class="language-html">&lt;view class=&quot;course-card relative&quot;&gt;
+  &lt;view&gt;
+    &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;/view&gt;&lt;!--图片--&gt;
+  &lt;view&gt;机器学习导论&lt;/view&gt;&lt;!--名称--&gt;
+  &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;&lt;!--免费--&gt;
+&lt;/view&gt;
+
+&lt;view class=&quot;course-card relative&quot;&gt;
+  &lt;view&gt;
+    &lt;image src=&quot;../../img/3.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+  &lt;/view&gt;&lt;!--图片--&gt;
+  &lt;view&gt;监督学习&lt;/view&gt;&lt;!--名称--&gt;
+  &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;&lt;!--免费--&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">.course-card{
+  width: 50%;/*父元素为整个page，占整个page的50%*/
+  margin: 10px;/*外边距*/
+}
+.course-card image{
+  width: 100%;/*父元素为course-card，占course-card的100%*/
+  border-radius: 5px;
+}
+.price{
+  color: green;
+}
+.relative{
+  position: relative;
+}
+</code></pre>
+<img src="images/image-20220929200146515.png" alt="image-20220929200146515" style="zoom:50%;" />
+<p>FlexBox有主轴与侧轴构成：<font color=red><strong>它作用在父元素的子元素上</strong></font></p>
+<img src="images/image-20220929200353377.png" alt="image-20220929200353377" style="zoom:50%;" />
+<p>此处我们用到水平的分布与对齐：</p>
+<img src="images/image-20220929200506981.png" alt="image-20220929200506981" style="zoom:50%;" />
+<p>最终得到的效果如下：</p>
+<pre><code class="language-html">&lt;view class=&quot;body&quot;&gt;
+  &lt;view class=&quot;head&quot;&gt;顶部&lt;/view&gt;
+  &lt;scroll-view scroll-y=&quot;true&quot; class=&quot;scroll-list&quot;&gt;
+    &lt;view class=&quot;scroll-wrap&quot;&gt;
+      &lt;view class=&quot;list&quot;&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;机器学习导论&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;监督学习&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;KNN算法&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;感知机模型&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;概率估计&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;朴素贝叶斯&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;逻辑回归&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;梯度下降&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;线性回归&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;支持向量机&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;经验风险最小化&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+          &lt;view&gt;
+            &lt;image src=&quot;../../img/2.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+          &lt;/view&gt;
+          &lt;!--图片--&gt;
+          &lt;view&gt;参数权衡&lt;/view&gt;
+          &lt;!--名称--&gt;
+          &lt;view class=&quot;price&quot;&gt;免费&lt;/view&gt;
+          &lt;!--免费--&gt;
+        &lt;/view&gt;
+      &lt;/view&gt;
+    &lt;/view&gt;
+  &lt;/scroll-view&gt;
+&lt;view class=&quot;bottom&quot;&gt;
+  &lt;view class=&quot;bottom-items&quot;&gt;
+    &lt;image src=&quot;../../img/index.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+    &lt;view&gt;首页&lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;bottom-items&quot;&gt;
+    &lt;image src=&quot;../../img/apply.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+    &lt;view&gt;设置&lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;bottom-items&quot;&gt;
+    &lt;image src=&quot;../../img/position.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+    &lt;view&gt;定位&lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;bottom-items&quot;&gt;
+    &lt;image src=&quot;../../img/user.png&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+    &lt;view&gt;用户&lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">.course-card{
+  width: 47vw;/*每个页面占水平的47份*/
+}
+.course-card image{
+  width: 100%;/*父元素为course-card，占course-card的100%*/
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.price{
+  color: green;
+  font-size: 14px;
+}
+.relative{
+  position: relative;
+}
+.head{
+  background-color: #ddd;
+}
+.bottom{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;/*中间分割对齐*/
+}
+.body{
+  display: flex;/*使用flex盒模型*/
+  flex-direction: column;/*列分布*/
+  height: 100vh;/*vh将页面高度分为100份，100vh表示占100份*/
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;/*换行*/
+  align-content: flex-start;/*向上对齐分布*/
+  justify-content: space-between;/*中间分割对齐*/
+  margin-left: 2vw;/*页面占了47*2=94份，左中右各占2份即可*/
+  margin-right: 2vw;
+}
+.bottom-items{
+  text-align: center;/*文字对齐*/
+  width:40px;/*item宽度*/
+  font-size: 12px;
+  line-height: 1;/**文字与图标的间隔*/
+  padding: 5px;
+}
+.bottom-items image{
+  width: 36px;/*图片宽度*/
+}
+.scroll-list{
+  flex-grow: 1;
+  position: relative;
+}
+.scroll-wrap{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+</code></pre>
+<img src="images/image-20220929222609852.png" alt="image-20220929222609852" style="zoom:50%;" />
+<h3 id="18-javascript">1.8 JavaScript</h3>
+<h4 id="181-变量">1.8.1 变量</h4>
+<pre><code class="language-javascript">// app.js
+console.log(149)//数字
+console.log(&quot;Hello World&quot;)//字符串
+//变量
+let price=149
+let string=&quot;javaScript is easy!&quot;
+//数组
+let arr=[0,1,2,3]
+arr=['a','b','c','d']//重新赋值
+//日志输出
+console.log(price)
+console.log(string)
+console.log(arr)
+/*输出结果：
+149
+Hello World
+11 149
+12 javaScript is easy!
+(4) [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+*/
+</code></pre>
+<p>声明：</p>
+<pre><code class="language-javascript">let a=10
+var b=9
+const c=8
+</code></pre>
+<p>赋值：</p>
+<pre><code class="language-javascript">let a=10
+a=9
+</code></pre>
+<h4 id="182-对象">1.8.2 对象</h4>
+<pre><code class="language-javascript">//对象
+let obj={
+    price:149,//键:值
+    name:&quot;javascript&quot;,
+    url:&quot;../../img/2/png&quot;
+}
+console.log(obj)
+obj.price=249
+console.log(obj.price)
+</code></pre>
+<h4 id="183-数据绑定">1.8.3 数据绑定</h4>
+<p>为了避免在wxml中重复得使用各个模块，我们可以使用数据绑定解决该问题：<br>
+我们首先删去重复的模块，只保留一个模块：</p>
+<img src="images/image-20220930155454453.png" alt="image-20220930155454453" style="zoom:50%;" />
+<p>首先定义data对象：</p>
+<pre><code class="language-javascript">// pages/card/card.js
+const App=getApp()//获取应用实例
+Page({//最外层是Page函数，第一层是一个未命名的对象
+  data:{//data是上层对象的一个成员，值为一个对象
+    price:0,
+    name:&quot;机器学习导论&quot;,
+    coverPath:&quot;../../img/2.png&quot;
+  }
+})
+</code></pre>
+<p>接着在wxml中修改课程模块处的信息：</p>
+<pre><code class="language-html">&lt;view class=&quot;course-card relative&quot;&gt;
+	&lt;view&gt;&lt;image src=&quot;{{coverPath}}&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;&lt;/view&gt;&lt;!--图片--&gt;
+    &lt;view&gt;{{name}}&lt;/view&gt;&lt;!--名称--&gt;
+    &lt;!--模板条件语句--&gt;
+    &lt;view wx:if=&quot;{{price&gt;0}}&quot; class=&quot;price&quot;&gt;{{price}}&lt;/view&gt;
+    &lt;view wx:else class=&quot;price&quot;&gt;免费&lt;/view&gt;&lt;!--免费--&gt;&lt;!--注意语法有两个{}--&gt;
+&lt;/view&gt;
+</code></pre>
+<p>因为我们是有多个课程的，所以将data中的成员改为一个列表，列表的元素是一个对象：</p>
+<pre><code class="language-javascript">// pages/card/card.js
+const App=getApp()//获取应用实例
+Page({//最外层是Page函数，第一层是一个未命名的对象
+  data:{//data是上层对象的一个成员，值为一个对象
+    list:[
+      {
+        price:0,
+        name:&quot;机器学习导论&quot;,
+        coverPath:&quot;../../img/2.png&quot;
+      }
+    ]
+  }
+})
+</code></pre>
+<p>接着我们修改wxml中的语句，利用循环插入多个课程：</p>
+<pre><code class="language-html">&lt;view class=&quot;list&quot;&gt;&lt;!--遍历list中的元素，将list[i]赋值给item--&gt;
+    &lt;view wx:for=&quot;{{list}}&quot;&gt;&lt;!--注意循环要写在flex模型类里面，否则会导致flex失效--&gt;
+        &lt;view class=&quot;course-card relative&quot;&gt;
+        &lt;view&gt;&lt;image src=&quot;{{item.coverPath}}&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;&lt;/view&gt;&lt;!--图片--&gt;
+        &lt;view&gt;{{item.name}}&lt;/view&gt;&lt;!--名称--&gt;
+        &lt;view wx:if=&quot;{{item.price&gt;0}}&quot; class=&quot;price&quot;&gt;{{item.price}}&lt;/view&gt;
+        &lt;view wx:else class=&quot;price&quot;&gt;免费&lt;/view&gt;&lt;!--免费--&gt;
+    &lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<p>由此我们可以实现之前的效果，而不需要多次重复定义，仅需要在js文件中的list中更新数据即可。</p>
+<h4 id="184-循环-分支">1.8.4 循环、分支</h4>
+<pre><code class="language-javascript">function(){
+    let list=[
+      {
+        price:0,
+        name:&quot;机器学习导论&quot;,
+        coverPath:&quot;../../img/2.png&quot;
+      },
+      {
+        price:149,
+        name:&quot;KNN算法&quot;,
+        coverPath:&quot;../../img/2.png&quot;
+      },
+      {
+        price:249,
+        name:&quot;感知机模型&quot;,
+        coverPath:&quot;../../img/2.png&quot;
+      }
+    ];
+    for(let i=0;i&lt;list.length;i++){
+      if(list[i].price&gt;0) console.log(list[i].price);
+      else console.log(&quot;免费&quot;);
+    }
+  }
+</code></pre>
+<h4 id="185-函数">1.8.5 函数</h4>
+<p>我们在首页界面头部添加两个button，我们希望这两个按钮实现过滤的功能</p>
+<pre><code class="language-html">&lt;view class=&quot;head&quot;&gt;
+	&lt;button size=&quot;mini&quot;&gt;付费&lt;/button&gt;
+    &lt;button size=&quot;mini&quot;&gt;免费&lt;/button&gt;
+&lt;/view&gt;
+</code></pre>
+<img src="images/image-20220930192643000.png" alt="image-20220930192643000" style="zoom:40%;" />
+<p>我们在js文件中定义一个响应点击的函数，并在wxml中利用bindtap进行绑定：</p>
+<pre><code class="language-javascript">onCost:function(){
+    let list=this.data.list;
+    let newlist=[];
+    for(let i=0;i&lt;list.length;i++){
+      if(list[i].price&gt;0) newlist.push(list[i]);
+    }
+    this.setData({list:newlist});
+  },
+  onFree:function(){
+    let list=this.data.list;
+    let newlist=[];
+    for(let i=0;i&lt;list.length;i++){
+      if(list[i].price==0) newlist.push(list[i]);
+    }
+    this.setData({list:newlist});//设置数据
+  }
+</code></pre>
+<pre><code class="language-html">&lt;view class=&quot;head&quot;&gt;
+    &lt;button size=&quot;mini&quot; bindtap=&quot;onCost&quot;&gt;付费&lt;/button&gt;
+    &lt;button size=&quot;mini&quot; bindtap=&quot;onFree&quot;&gt;免费&lt;/button&gt;
+&lt;/view&gt;
+</code></pre>
+<p>我们可以将上述两个函数整合为一个函数onFilter，省去重复的代码：</p>
+<pre><code class="language-JavaScript">onCost:function(){
+    this.onFilter('cost');
+  },
+  onFree:function(){
+    this.onFilter('free');
+  },
+  onFilter:function(type){
+    let list=this.data.course;
+    let newlist=[];
+    for(let i=0;i&lt;list.length;i++){
+      if(type=='cost'&amp;&amp;list[i].price&gt;0) newlist.push(list[i]);
+      if(type=='free'&amp;&amp;list[i].price==0) newlist.push(list[i]);
+    }
+    this.setData({list:newlist});//设置数据
+  }
+</code></pre>
+<h4 id="186-模板">1.8.6 模板</h4>
+<p>在wxml模块中，可以使用模板作为公共模块：</p>
+<pre><code class="language-html">&lt;template name=&quot;course-card&quot;&gt;
+  &lt;view class=&quot;course-card relative&quot;&gt;
+    &lt;view&gt;
+      &lt;image src=&quot;{{item.coverPath}}&quot; mode=&quot;widthFix&quot;&gt;&lt;/image&gt;
+    &lt;/view&gt;
+    &lt;!--图片--&gt;
+    &lt;view&gt;{{item.name}}&lt;/view&gt;
+    &lt;!--名称--&gt;
+    &lt;view wx:if=&quot;{{item.price&gt;0}}&quot; class=&quot;price&quot;&gt;{{item.price}}&lt;/view&gt;
+    &lt;view wx:else class=&quot;price&quot;&gt;免费&lt;/view&gt;
+    &lt;!--免费--&gt;
+  &lt;/view&gt;
+&lt;/template&gt;
+
+&lt;view wx:for=&quot;{{list}}&quot;&gt;
+    &lt;template is=&quot;course-card&quot; data=&quot;{{item}}&quot;/&gt;
+&lt;/view&gt;
+</code></pre>
+<h2 id="二-口算功能开发">二、口算功能开发</h2>
+<h3 id="21-整体规划">2.1 整体规划</h3>
+<img src="images/image-20221001201724257.png" alt="image-20221001201724257" style="zoom:50%;" />
+<h3 id="22-grade1开发">2.2 Grade1开发</h3>
+<h4 id="221-首页页面">2.2.1 首页页面</h4>
+<p>首先设计Grade1的开始界面，设计三个按钮进入3种难度的口算练习页面：</p>
+<pre><code class="language-html">&lt;!--习题选择页面--&gt;
+&lt;view class=&quot;body&quot;&gt;
+  &lt;view class=&quot;head&quot;&gt;
+    &lt;view&gt;一年级 口算练习&lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;question&quot;&gt;
+    &lt;view class=&quot;tips&quot;&gt;💡&quot;-&quot;是&quot;+&quot;的逆运算&lt;/view&gt;
+   &lt;button bindtap=&quot;goWithin10&quot;&gt;
+    &lt;view&gt;10以内加减法&lt;/view&gt;
+    &lt;view class=&quot;eg&quot;&gt;例题：5+5、10-2&lt;/view&gt;
+   &lt;/button&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;question&quot;&gt;
+   &lt;button&gt;
+    &lt;view&gt;20以内加减法&lt;/view&gt;
+    &lt;view class=&quot;eg&quot;&gt;例题：8+9、10+5&lt;/view&gt;
+   &lt;/button&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;question&quot;&gt;
+   &lt;button&gt;
+    &lt;view&gt;100以内加减法&lt;/view&gt;
+    &lt;view class=&quot;eg&quot;&gt;例题：89+9、76-25&lt;/view&gt;
+   &lt;/button&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;bottom&quot;&gt;
+  &lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">/**index.wxss**/
+.body{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.head{
+  background-color: white;
+  width:100%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.question{
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+.question button{
+  font-size: 18px;
+  width:100vw;
+  height: 15vh;
+  background-color:white;
+  text-align: left;
+  box-shadow: 0 0 5px #5F687E;
+  display: table-cell;
+  vertical-align: middle;
+}
+.eg{
+  font-size: 11px;
+  color: rgb(151, 149, 149);
+}
+.tips{
+  font-size: 14px;
+  margin: 5px;
+  font-weight: bold;
+  color:rgb(53, 153, 247);
+  padding: 5px;
+}
+Page{
+  background-color: #f9f9f9;
+}
+</code></pre>
+<img src="images/image-20221001202033632.png" alt="image-20221001202033632" style="zoom:40%;" />
+<p>设计三个按钮的响应：进入相应的口算练习页面：</p>
+<pre><code>
+</code></pre>
+<h4 id="222-练习页面">2.2.2 练习页面</h4>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://meng-boy.github.io/post/li-xiang-hui-yi/">
+                  <h3 class="post-title">
+                    立项会议
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
